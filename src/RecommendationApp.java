@@ -9,7 +9,7 @@ import java.util.List;
 public class RecommendationApp {
 
     public static void main(String[] args) {
-        InputService inputService = new FileInput("./src/input.txt");
+        InputService inputService = new FileInput("./res/input.txt");
         UserService userService = new UserService();
         RecommendationService recommendationService = new RecommendationService(userService);
 

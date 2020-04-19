@@ -1,10 +1,10 @@
 package service;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.List;
 
 public class FileInput implements InputService {
@@ -16,19 +16,13 @@ public class FileInput implements InputService {
 
     @Override
     public List<String> readInput() {
-
-        List<String> inputs = new ArrayList<>();
+        Path path = Paths.get(filePath);
         try {
-            File file = new File(filePath);
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String input;
-            while ((input = br.readLine()) != null) {
-                inputs.add(input);
-            }
-
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
+            return Files.readAllLines(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return Collections.emptyList();
         }
-        return inputs;
+
     }
 }

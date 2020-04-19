@@ -8,11 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecommendationService {
-    private UserService userService;
     private RecommendationStrategy recommendationStrategy;
 
     public RecommendationService(UserService userService) {
-        this.userService = userService;
         this.recommendationStrategy = new DatingRecommendation(userService);
     }
 

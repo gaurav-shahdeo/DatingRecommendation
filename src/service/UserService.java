@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class UserService {
-    List<User> users;
+    private List<User> users;
 
     public List<User> getAllUsers() {
         return users;
@@ -18,7 +18,7 @@ public class UserService {
         String name = "UserB";
         int age = 27;
         Gender gender = Gender.MALE;
-        List<String> interests = Arrays.asList(new String[] {"Cricket", "Football", "Movies"});
+        List<String> interests = Arrays.asList("Cricket", "Football", "Movies");
         return new User(name, age, gender, interests);
     }
 
